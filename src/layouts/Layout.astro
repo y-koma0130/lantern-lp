@@ -1,0 +1,103 @@
+---
+interface Props {
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content={description} />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Figtree:wght@700&display=swap" rel="stylesheet" />
+		<title>{title}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	*,
+	*::before,
+	*::after {
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+	}
+
+	:root {
+		--brand-primary: #0891b2;
+		--brand-hover: #0e7490;
+		--brand-light: #cffafe;
+		--brand-subtle: #67e8f9;
+
+		--text-primary: #172b4d;
+		--text-secondary: #505f79;
+		--text-tertiary: #97a0af;
+
+		--surface: #ffffff;
+		--surface-subtle: #fafbfc;
+		--surface-hover: #ebecf0;
+
+		--border: #dfe1e6;
+		--border-focus: #0891b2;
+
+		--success: #36b37e;
+		--success-bg: #e3fcef;
+		--success-text: #006644;
+		--error: #ff5630;
+		--error-bg: #ffebe6;
+		--error-text: #bf2600;
+		--warning: #ffab00;
+		--warning-bg: #fffae6;
+
+		--pricing-bg: #ffebe6;
+		--pricing-text: #bf2600;
+		--feature-bg: #e3fcef;
+		--feature-text: #006644;
+		--hiring-bg: #eae6ff;
+		--hiring-text: #403294;
+		--funding-bg: #fffae6;
+		--funding-text: #946300;
+		--sentiment-bg: #e6fcff;
+		--sentiment-text: #006a80;
+		--messaging-bg: #ebecf0;
+		--messaging-text: #344563;
+
+		--radius: 3px;
+		--font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+		--font-logo: "Figtree", sans-serif;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: var(--font-body);
+		color: var(--text-primary);
+		background: var(--surface);
+		line-height: 1.6;
+		-webkit-font-smoothing: antialiased;
+	}
+
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	button {
+		cursor: pointer;
+		border: none;
+		background: none;
+		font-family: inherit;
+	}
+</style>

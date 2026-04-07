@@ -1,0 +1,87 @@
+<footer class="footer">
+	<div class="footer-inner">
+		<div class="footer-brand">
+			<a href="/" class="logo">
+				<span class="logo-l">l</span><span>antern</span>
+			</a>
+			<p class="footer-tagline">Competitive intelligence for cybersecurity SaaS teams.</p>
+		</div>
+		<div class="footer-links">
+			<div class="footer-col">
+				<a href="#features">Features</a>
+				<a href="#pricing">Pricing</a>
+				<a href="#faq">FAQ</a>
+			</div>
+			<div class="footer-col">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/terms">Terms of Service</a>
+			</div>
+		</div>
+	</div>
+	<div class="footer-bottom">
+		<p>&copy; {new Date().getFullYear()} Lantern. All rights reserved.</p>
+	</div>
+</footer>
+
+<style>
+	.footer {
+		padding: 48px 24px 24px;
+		border-top: 1px solid var(--border);
+	}
+	.footer-inner {
+		max-width: 1120px;
+		margin: 0 auto;
+		display: flex;
+		justify-content: space-between;
+		gap: 48px;
+	}
+	.logo {
+		display: flex;
+		align-items: center;
+		font-family: var(--font-logo);
+		font-weight: 700;
+		font-size: 18px;
+		color: var(--text-primary);
+		margin-bottom: 8px;
+	}
+	.logo-l {
+		color: var(--brand-primary);
+	}
+	.footer-tagline {
+		font-size: 13px;
+		color: var(--text-tertiary);
+	}
+	.footer-links {
+		display: flex;
+		gap: 64px;
+	}
+	.footer-col {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+	}
+	.footer-col a {
+		font-size: 14px;
+		color: var(--text-secondary);
+		transition: color 0.15s;
+	}
+	.footer-col a:hover {
+		color: var(--text-primary);
+	}
+	.footer-bottom {
+		max-width: 1120px;
+		margin: 32px auto 0;
+		padding-top: 24px;
+		border-top: 1px solid var(--border);
+		text-align: center;
+		font-size: 13px;
+		color: var(--text-tertiary);
+	}
+
+	@media (max-width: 768px) {
+		.footer-inner {
+			flex-direction: column;
+			gap: 32px;
+		}
+	}
+</style>

@@ -1,0 +1,146 @@
+---
+const categories = [
+	{ label: "Pricing", bg: "var(--pricing-bg)", color: "var(--pricing-text)" },
+	{ label: "Feature", bg: "var(--feature-bg)", color: "var(--feature-text)" },
+	{
+		label: "Sentiment",
+		bg: "var(--sentiment-bg)",
+		color: "var(--sentiment-text)",
+	},
+	{ label: "Hiring", bg: "var(--hiring-bg)", color: "var(--hiring-text)" },
+	{ label: "Funding", bg: "var(--funding-bg)", color: "var(--funding-text)" },
+	{
+		label: "Messaging",
+		bg: "var(--messaging-bg)",
+		color: "var(--messaging-text)",
+	},
+];
+---
+
+<section class="hero">
+	<div class="hero-inner">
+		<div class="hero-badge">Built for Cybersecurity SaaS Teams</div>
+		<h1 class="hero-title">
+			Know what your competitors changed
+			<span class="hero-accent">before your next sales call</span>
+		</h1>
+		<p class="hero-subtitle">
+			Lantern monitors competitor websites, reviews, funding, and hiring — then delivers
+			AI-powered insights and auto-generated battle cards to your inbox every week.
+		</p>
+		<div class="hero-cta">
+			<a href="#pricing" class="btn-primary-lg">Start Free — No Credit Card</a>
+			<a href="#how-it-works" class="btn-secondary">See How It Works</a>
+		</div>
+		<div class="hero-categories">
+			{categories.map((cat) => (
+				<span class="category-badge" style={`background:${cat.bg};color:${cat.color}`}>
+					{cat.label}
+				</span>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero {
+		padding: 80px 24px 64px;
+		text-align: center;
+		background: linear-gradient(180deg, var(--brand-light) 0%, var(--surface) 100%);
+	}
+	.hero-inner {
+		max-width: 720px;
+		margin: 0 auto;
+	}
+	.hero-badge {
+		display: inline-block;
+		padding: 4px 12px;
+		background: var(--brand-light);
+		color: var(--brand-hover);
+		font-size: 13px;
+		font-weight: 600;
+		border-radius: var(--radius);
+		margin-bottom: 24px;
+	}
+	.hero-title {
+		font-size: 48px;
+		font-weight: 800;
+		line-height: 1.15;
+		letter-spacing: -0.02em;
+		color: var(--text-primary);
+		margin-bottom: 20px;
+	}
+	.hero-accent {
+		display: block;
+		color: var(--brand-primary);
+	}
+	.hero-subtitle {
+		font-size: 18px;
+		color: var(--text-secondary);
+		line-height: 1.7;
+		margin-bottom: 32px;
+		max-width: 600px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	.hero-cta {
+		display: flex;
+		gap: 12px;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-bottom: 48px;
+	}
+	.btn-primary-lg {
+		display: inline-flex;
+		align-items: center;
+		padding: 14px 32px;
+		background: var(--brand-primary);
+		color: white;
+		font-size: 16px;
+		font-weight: 600;
+		border-radius: var(--radius);
+		transition: background 0.15s;
+	}
+	.btn-primary-lg:hover {
+		background: var(--brand-hover);
+	}
+	.btn-secondary {
+		display: inline-flex;
+		align-items: center;
+		padding: 14px 32px;
+		border: 1px solid var(--border);
+		color: var(--text-secondary);
+		font-size: 16px;
+		font-weight: 500;
+		border-radius: var(--radius);
+		transition: border-color 0.15s, color 0.15s;
+	}
+	.btn-secondary:hover {
+		border-color: var(--text-tertiary);
+		color: var(--text-primary);
+	}
+	.hero-categories {
+		display: flex;
+		gap: 8px;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+	.category-badge {
+		padding: 4px 10px;
+		font-size: 12px;
+		font-weight: 600;
+		border-radius: var(--radius);
+	}
+
+	@media (max-width: 768px) {
+		.hero {
+			padding: 48px 24px 40px;
+		}
+		.hero-title {
+			font-size: 32px;
+		}
+		.hero-subtitle {
+			font-size: 16px;
+		}
+	}
+</style>

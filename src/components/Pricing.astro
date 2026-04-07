@@ -1,0 +1,251 @@
+---
+const plans = [
+	{
+		name: "Free",
+		price: "$0",
+		period: "forever",
+		description: "Get started with basic competitor tracking.",
+		features: [
+			"3 competitors",
+			"1 team member",
+			"Monthly digest",
+			"Email delivery",
+			"7-day data retention",
+			"Community support",
+		],
+		cta: "Get Started",
+		highlighted: false,
+	},
+	{
+		name: "Starter",
+		price: "$79",
+		period: "/mo",
+		annual: "$790/yr (save 17%)",
+		description: "For small teams getting serious about CI.",
+		features: [
+			"10 competitors",
+			"3 team members",
+			"Weekly digest",
+			"Email + Slack + Discord",
+			"30-day data retention",
+			"Email support",
+		],
+		cta: "Start Free Trial",
+		highlighted: false,
+	},
+	{
+		name: "Pro",
+		price: "$199",
+		period: "/mo",
+		annual: "$1,990/yr (save 17%)",
+		description: "Full power for product marketing teams.",
+		features: [
+			"20 competitors",
+			"10 team members",
+			"Weekly + daily alerts",
+			"Email + Slack + Discord",
+			"Battle cards",
+			"CSV export",
+			"90-day data retention",
+			"Priority email support",
+		],
+		cta: "Start Free Trial",
+		highlighted: true,
+	},
+	{
+		name: "Team",
+		price: "$399",
+		period: "/mo",
+		annual: "$3,990/yr (save 17%)",
+		description: "For organizations tracking the full landscape.",
+		features: [
+			"100 competitors",
+			"25 team members",
+			"Weekly + daily alerts",
+			"Email + Slack + Discord",
+			"Battle cards",
+			"CSV export",
+			"Unlimited data retention",
+			"Priority email support",
+		],
+		cta: "Start Free Trial",
+		highlighted: false,
+	},
+];
+---
+
+<section class="pricing" id="pricing">
+	<div class="pricing-inner">
+		<div class="section-header">
+			<h2 class="section-title">Simple, transparent pricing</h2>
+			<p class="section-subtitle">
+				Start free. Upgrade when you need more competitors, team members, or features.
+			</p>
+		</div>
+		<div class="pricing-grid">
+			{plans.map((plan) => (
+				<div class:list={["plan-card", { highlighted: plan.highlighted }]}>
+					{plan.highlighted && <div class="popular-badge">Most Popular</div>}
+					<h3 class="plan-name">{plan.name}</h3>
+					<div class="plan-price">
+						<span class="price">{plan.price}</span>
+						<span class="period">{plan.period}</span>
+					</div>
+					{plan.annual && <div class="plan-annual">{plan.annual}</div>}
+					<p class="plan-desc">{plan.description}</p>
+					<a
+						href="#"
+						class:list={["plan-cta", { "plan-cta-primary": plan.highlighted, "plan-cta-default": !plan.highlighted }]}
+					>
+						{plan.cta}
+					</a>
+					<ul class="plan-features">
+						{plan.features.map((feature) => (
+							<li class="plan-feature">
+								<svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+									<path d="M13.3 4.3L6 11.6 2.7 8.3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+								</svg>
+								{feature}
+							</li>
+						))}
+					</ul>
+				</div>
+			))}
+		</div>
+	</div>
+</section>
+
+<style>
+	.pricing {
+		padding: 80px 24px;
+	}
+	.pricing-inner {
+		max-width: 1120px;
+		margin: 0 auto;
+	}
+	.section-header {
+		text-align: center;
+		margin-bottom: 56px;
+	}
+	.section-title {
+		font-size: 32px;
+		font-weight: 700;
+		margin-bottom: 12px;
+	}
+	.section-subtitle {
+		font-size: 16px;
+		color: var(--text-secondary);
+		max-width: 560px;
+		margin: 0 auto;
+	}
+	.pricing-grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 20px;
+		align-items: start;
+	}
+	.plan-card {
+		position: relative;
+		padding: 28px 24px;
+		background: var(--surface);
+		border: 1px solid var(--border);
+		border-radius: var(--radius);
+	}
+	.plan-card.highlighted {
+		border-color: var(--brand-primary);
+		box-shadow: 0 0 0 1px var(--brand-primary);
+	}
+	.popular-badge {
+		position: absolute;
+		top: -12px;
+		left: 50%;
+		transform: translateX(-50%);
+		padding: 2px 12px;
+		background: var(--brand-primary);
+		color: white;
+		font-size: 12px;
+		font-weight: 600;
+		border-radius: var(--radius);
+		white-space: nowrap;
+	}
+	.plan-name {
+		font-size: 16px;
+		font-weight: 600;
+		margin-bottom: 8px;
+	}
+	.plan-price {
+		margin-bottom: 4px;
+	}
+	.price {
+		font-size: 36px;
+		font-weight: 700;
+	}
+	.period {
+		font-size: 14px;
+		color: var(--text-secondary);
+	}
+	.plan-annual {
+		font-size: 13px;
+		color: var(--brand-primary);
+		font-weight: 500;
+		margin-bottom: 8px;
+	}
+	.plan-desc {
+		font-size: 14px;
+		color: var(--text-secondary);
+		margin-bottom: 20px;
+	}
+	.plan-cta {
+		display: block;
+		text-align: center;
+		padding: 10px;
+		font-size: 14px;
+		font-weight: 600;
+		border-radius: var(--radius);
+		margin-bottom: 24px;
+		transition: background 0.15s, border-color 0.15s;
+	}
+	.plan-cta-primary {
+		background: var(--brand-primary);
+		color: white;
+	}
+	.plan-cta-primary:hover {
+		background: var(--brand-hover);
+	}
+	.plan-cta-default {
+		border: 1px solid var(--border);
+		color: var(--text-primary);
+	}
+	.plan-cta-default:hover {
+		border-color: var(--text-tertiary);
+	}
+	.plan-features {
+		list-style: none;
+	}
+	.plan-feature {
+		display: flex;
+		align-items: center;
+		gap: 8px;
+		font-size: 13px;
+		color: var(--text-secondary);
+		padding: 6px 0;
+	}
+	.plan-feature svg {
+		flex-shrink: 0;
+		color: var(--success);
+	}
+
+	@media (max-width: 1024px) {
+		.pricing-grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+	@media (max-width: 640px) {
+		.pricing-grid {
+			grid-template-columns: 1fr;
+		}
+		.pricing {
+			padding: 56px 24px;
+		}
+	}
+</style>
